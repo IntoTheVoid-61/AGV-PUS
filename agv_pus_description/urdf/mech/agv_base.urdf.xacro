@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ================= Properties ================= -->
+    <xacro:property name="base_length" value="0.97184"/>   <!-- x -->
+    <xacro:property name="base_width"  value="0.880"/>     <!-- y -->
+    <xacro:property name="base_height" value="0.227"/>     <!-- z -->
+    <xacro:property name="coordinate_z_offset" value="0.002"/> <!--offset in the z direction from the bottom of chassie to cs origin-->
+    <xacro:property name="wheel_radius" value="0.1015"/>   <!-- 203mm / 2 -->
+    <xacro:property name="shaft_height" value="0.07031"/>  <!-- wheel shaft center wrt base_link -->
+    <xacro:property name="base_mass"   value="20.0"/>      <!-- guess: adjust when known -->
+    <xacro:property name="d_base_link_base_footprint"   value="0.031295"/> <!-- base_footprint is the robot projection on the ground plane --> 
+
+
+    <!-- ================= Xacro Name ================= -->
+    <xacro:macro name="agv_base" params="prefix">
+
+    <!-- ================= Base Links ================= -->
+    <link name="base_footprint"/>
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://agv_pus_description/meshes/vehicle/visual/base_link.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0 0.3 0.9 1.0"/>
+            </material>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+
+        <!-- Collision (box approx) -->
+        <collision>
+            <geometry>
+                <box size="${base_length} ${base_width} ${base_height}"/>
+            </geometry>
+            <origin xyz="0 0 ${base_height/2 - coordinate_z_offset}" rpy="0 0 0"/>
+        </collision>
+        
+        <!-- Inertial (uniform box assumption) -->
+        <inertial>
+            <origin xyz="0 0 ${base_height/2 - coordinate_z_offset}" rpy="0 0 0"/>
+            <mass value="${base_mass}"/>
+            <inertia
+                ixx="${(1/12) * base_mass * ((base_width*base_width) + (base_height*base_height))}" ixy="0.0" ixz="0.0"
+                iyy="${(1/12) * base_mass * ((base_length*base_length) + (base_height*base_height))}" iyz="0.0"
+                izz="${(1/12) * base_mass * ((base_length*base_length) + (base_width*base_width))}"/>
+            </inertial>
+    </link>
+
+    <!-- Gazebo materials -->
+    <gazebo reference="base_link">
+        <visual>
+            <material>
+                <ambient>0.0 0.3 0.9 1</ambient>
+                <diffuse>0.0 0.3 0.9 1</diffuse>
+                <specular>0.0 0.3 0.9 1</specular>
+            </material>
+        </visual>
+    </gazebo>
+
+    <!-- Base footprint to base_link joint -->
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 ${d_base_link_base_footprint}" rpy="0 0 0"/>
+    </joint>
+    </xacro:macro>
+</robot>
