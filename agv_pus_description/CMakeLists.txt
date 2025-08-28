@@ -14,7 +14,7 @@ find_package(urdf_tutorial REQUIRED)
 
 
 install (
-  DIRECTORY config launch meshes urdf rviz
+  DIRECTORY config launch meshes urdf rviz 
   DESTINATION share/${PROJECT_NAME}
 )
 

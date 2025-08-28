@@ -3,13 +3,16 @@
 <package format="3">
   <name>agv_pus</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>This is a metapackage for AGV-PUS</description>
   <maintainer email="ziga@student.um.si">ziga_jazzy</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <exec_depend>agv_pus_bringup</exec_depend>
   <exec_depend>agv_pus_description</exec_depend>
+  <exec_depend>agv_pus_gazebo</exec_depend>
+  <exec_depend>agv_pus_system_tests</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

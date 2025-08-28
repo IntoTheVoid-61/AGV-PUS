@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rosmaster_x3">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="agv_pus">
 
     <xacro:property name="M_PI" value="3.1415926535897931" />
 
@@ -65,18 +65,18 @@
 
 
 
-    <!--xacro:include filename="$(find yahboom_rosmaster_description)/urdf/control/velocity_control_plugin.urdf.xacro" />
+    <xacro:include filename="$(find agv_pus_description)/urdf/control/velocity_control_plugin.urdf.xacro" />
     <xacro:load_velocity_control_plugin use_gazebo="$(arg use_gazebo)"/>
 
-    <xacro:include filename="$(find yahboom_rosmaster_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro" />
+    <xacro:include filename="$(find agv_pus_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro" />
     <xacro:load_gazebo_sim_ros2_control_plugin
       robot_name="$(arg robot_name)"
       use_gazebo="$(arg use_gazebo)"/>
 
-    <xacro:include filename="$(find yahboom_rosmaster_description)/urdf/control/rosmaster_x3_ros2_control.urdf.xacro" />
-    <xacro:yahboom_rosmaster_ros2_control
+    <xacro:include filename="$(find agv_pus_description)/urdf/control/rosmaster_x3_ros2_control.urdf.xacro" />
+    <xacro:agv_pus_ros2_control
       prefix="$(arg prefix)"
-      use_gazebo="$(arg use_gazebo)"/-->
+      use_gazebo="$(arg use_gazebo)"/>
 
 
 </robot>
