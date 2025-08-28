@@ -8,13 +8,15 @@ This is a work in progress and is being updated frequently.
 For specific CAD files please visit the AGV-CAD repository
 
 The template for mecanum drive controller was provided by Addison Sears-Collins: https://github.com/automaticaddison/yahboom_rosmaster/tree/main/mecanum_drive_controller
+
+
 Given the specific AGV compositon i.e. physical structure it was updated specifically for our project. For useful information about robots mentioned characteristic by which
 the robot was modelled in ROS (such as transformations and placements of coordinate system), please consult the CAD repository.
 
 The sensors used for AGV:
-    - IMU
-    - Lidar
-    - D435 rgbd camera
+- IMU
+- Lidar
+- D435 rgbd camera
 
 This project is still underwork.
 
