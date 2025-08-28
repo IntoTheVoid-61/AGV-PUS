@@ -18,13 +18,13 @@ ros2 launch agv_pus_gazebo agv_pus.gazebo.launch.py \
     enable_odom_tf:=true \
     headless:=False \
     load_controllers:=true \
-    world_file:=empty.world \
+    world_file:=cafe.world \
     use_rviz:=true \
     use_robot_state_pub:=true \
     use_sim_time:=true \
     x:=0.0 \
     y:=0.0 \
-    z:=0.0 \
+    z:=0.2 \
     roll:=0.0 \
     pitch:=0.0 \
     yaw:=0.0 &
