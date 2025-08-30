@@ -1,21 +1,15 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>agv_pus</name>
+  <name>agv_pus_localization</name>
   <version>0.0.0</version>
-  <description>This is a metapackage for AGV-PUS</description>
-  <maintainer email="ziga@student.um.si">ziga_jazzy</maintainer>
+  <description>Localization package for AGV-PUS</description>
+  <maintainer email="ziga.breznikar@student.um.si">ziga_jazzy</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <exec_depend>agv_pus_bringup</exec_depend>
-  <exec_depend>agv_pus_description</exec_depend>
-  <exec_depend>agv_pus_gazebo</exec_depend>
-  <exec_depend>agv_pus_localization</exec_depend>
-  <exec_depend>agv_pus_navigation</exec_depend>
-  <exec_depend>agv_pus_system_tests</exec_depend>
-  
+  <depend>robot_localization</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

@@ -27,11 +27,10 @@ This project is still underwork.
 
 ## Screenshots
 
-<img width="1075" height="774" alt="Image" src="https://github.com/user-attachments/assets/f5793dc3-b1de-482d-861b-5041d964a07a" />
-
-
-
-<img width="578" height="520" alt="Image" src="https://github.com/user-attachments/assets/df8e7117-645a-4428-97b4-357683c91f8e" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f5793dc3-b1de-482d-861b-5041d964a07a" width="45%" />
+  <img src="https://github.com/user-attachments/assets/df8e7117-645a-4428-97b4-357683c91f8e" width="45%" />
+</p>
 
 ## Author
 
