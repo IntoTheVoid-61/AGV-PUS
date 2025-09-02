@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(agv_pus_system_tests)
+project(agv_pus_msgs)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,29 +7,11 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(rclcpp_action REQUIRED)
-find_package(geometry_msgs REQUIRED)
-find_package(std_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
 
-
-
-# Add the square mecanum controller executable
-add_executable(square_mecanum_controller
-  src/square_mecanum_controller.cpp
-)
-
-# Specify dependencies for the target
-ament_target_dependencies(square_mecanum_controller
-  rclcpp
-  geometry_msgs
-  std_msgs
-)
-
-install(TARGETS
-  square_mecanum_controller
-  DESTINATION lib/${PROJECT_NAME}
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "action/TimedRotation.action"
 )
 
 if(BUILD_TESTING)

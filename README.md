@@ -24,6 +24,8 @@ This project is still underwork.
 ## Prerequisites
 - ROS2 installed
 - Python 3.x.x
+- ROS2 Jazzy
+- It is advised that you run Gazebo simulations with GPU instead of CPU (CUDA if you are using a Nvidia Hardware)
 
 ## Screenshots
 
