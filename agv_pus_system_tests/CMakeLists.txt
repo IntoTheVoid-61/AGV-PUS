@@ -12,6 +12,7 @@ find_package(rclcpp_action REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rcl_interfaces REQUIRED)
+find_package(agv_pus_msgs REQUIRED)
 
 # Copy necessary files to designated locations in the project
 install (
@@ -30,6 +31,16 @@ add_executable(mecanum_parameters_node
   src/mecanum_parameters_node.cpp
 )
 
+# Add the timed rotation action server executable
+add_executable(timed_rotation_action_server
+  src/timed_rotation_action_server.cpp
+)
+
+# Add the timed rotation action client executable
+add_executable(timed_rotation_action_client
+  src/timed_rotation_action_client.cpp
+)
+
 # Specify dependencies for the target
 ament_target_dependencies(square_mecanum_controller
   rclcpp
@@ -45,9 +56,27 @@ ament_target_dependencies(mecanum_parameters_node
   rcl_interfaces
 )
 
+# Specify dependencies for the timed rotation action server
+ament_target_dependencies(timed_rotation_action_server
+  rclcpp
+  rclcpp_action
+  geometry_msgs
+  agv_pus_msgs
+)
+
+# Specify dependencies for the timed rotation action client
+ament_target_dependencies(timed_rotation_action_client
+  rclcpp
+  rclcpp_action
+  agv_pus_msgs
+  std_msgs
+)
+
 install(TARGETS
   square_mecanum_controller
   mecanum_parameters_node
+  timed_rotation_action_server
+  timed_rotation_action_client
   DESTINATION lib/${PROJECT_NAME}
 )
 
