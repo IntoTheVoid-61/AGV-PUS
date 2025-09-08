@@ -12,11 +12,11 @@ cleanup() {
 trap 'cleanup' SIGINT SIGTERM
 
 # Check if SLAM argument is provided
-#if [ "$1" = "slam" ]; then
-#    SLAM_ARG="slam:=True"
-#else
-#    SLAM_ARG="slam:=False"
-#fi
+if [ "$1" = "slam" ]; then
+    SLAM_ARG="slam:=True"
+else
+    SLAM_ARG="slam:=False"
+fi
 
 # For cafe.world -> z:=0.20
 # For house.world -> z:=0.05
@@ -33,12 +33,12 @@ ros2 launch agv_pus_bringup agv_pus_navigation.launch.py \
     use_sim_time:=true \
     x:=0.0 \
     y:=0.0 \
-    z:=0.20 \
+    z:=0.2 \
     roll:=0.0 \
     pitch:=0.0 \
-    yaw:=0.0 & #\
-    #"$SLAM_ARG" \
-    #map:=/home/ubuntu/ros2_ws/src/agv_pus/agv_pus_navigation/maps/cafe_world_map.yaml &
+    yaw:=0.0 \
+    "$SLAM_ARG" \
+    map:=/home/ziga_jazzy/ros2_ws/src/agv_pus/agv_pus_navigation/maps/cafe_world_map.yaml &
 
 echo "Waiting 25 seconds for simulation to initialize..."
 sleep 25

@@ -31,7 +31,7 @@
         <!-- Collision (box approx) -->
         <collision>
             <geometry>
-                <box size="${base_length} ${base_width} ${base_height}"/>
+                <box size="${base_length + 0.2} ${base_width} ${base_height}"/>
             </geometry>
             <origin xyz="0 0 ${base_height/2 - coordinate_z_offset}" rpy="0 0 0"/>
         </collision>

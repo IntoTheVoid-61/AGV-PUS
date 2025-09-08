@@ -41,7 +41,7 @@ def generate_launch_description():
 
     default_robot_name = 'agv_pus'
     gazebo_models_path = 'models'
-    default_world_file = 'empty.world'
+    default_world_file = 'cafe.world'
     gazebo_worlds_path = 'worlds'
     ros_gz_bridge_config_file_path = 'config/ros_gz_bridge.yaml'
     rviz_config_filename = 'agv_pus_gazebo_sim.rviz'

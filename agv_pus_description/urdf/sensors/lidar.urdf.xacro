@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:property name="M_PI" value="3.1415926535897931" />
-
+  <!-- Ta kurba vidi samega sebe, povecaj min_range, lahk ga pol ekzaktno dolocis -->
   <xacro:macro name="lidar_sensor" params="
     prefix:=''
     parent:='base_link'
@@ -26,9 +26,9 @@
     gazebo_material_specular:='0.1 0.1 0.1 1'
     update_rate:=10 
     ray_count:=720
-    min_angle:='-3.14159'
-    max_angle:='3.14159'
-    min_range:='0.20'
+    min_angle:='-3.14 ' 
+    max_angle:='3.14 '
+    min_range:='1.20' 
     max_range:='30.0'
     range_resolution:='0.013'
     topic_name:='scan'
