@@ -41,6 +41,12 @@ add_executable(timed_rotation_action_client
   src/timed_rotation_action_client.cpp
 )
 
+# Add the agv velocity controller executable
+add_executable(velocity_controller
+  src/velocity_controller.cpp
+)
+
+
 # Specify dependencies for the target
 ament_target_dependencies(square_mecanum_controller
   rclcpp
@@ -72,11 +78,19 @@ ament_target_dependencies(timed_rotation_action_client
   std_msgs
 )
 
+# Specify dependencies for the target
+ament_target_dependencies(velocity_controller
+  rclcpp
+  geometry_msgs
+  std_msgs
+)
+
 install(TARGETS
   square_mecanum_controller
   mecanum_parameters_node
   timed_rotation_action_server
   timed_rotation_action_client
+  velocity_controller
   DESTINATION lib/${PROJECT_NAME}
 )
 
